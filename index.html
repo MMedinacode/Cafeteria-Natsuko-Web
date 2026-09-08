@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cafetería Natsuko — Pastelería japonesa, Padre Hurtado</title>
+
+<!-- ============================================================
+     PROTOTIPO BETA — CAFETERÍA NATSUKO
+     Datos verificados en vivo el 08-09-2026:
+     - Google Maps: dirección, horario del día, rating 4.7/281 opiniones,
+       badge "Se identifica como mujer empresaria", accesibilidad en
+       silla de ruedas, "para retirar o con entrega a domicilio".
+       CID real: 0x9662dd43c67880f1:0xe2ec8b5df196ae2c
+       Coordenadas: -33.5652367, -70.809635
+       Embed real obtenido vía Compartir → Incorporar un mapa (no el
+       iframe genérico de solo dirección).
+     - Menú digital oficial (fu.do) — coincide con "menú digital: sí" de
+       la planilla de prospección Apify: https://menu.fu.do/cafeterianatsuko
+       De ahí se sacó el HORARIO OFICIAL (más detallado que Maps) y los
+       PRECIOS REALES de la carta (curada acá: son 200+ ítems, se eligió
+       una selección representativa por categoría; el sitio linkea a la
+       carta completa online).
+     - Instagram real y VERIFICADO (check azul): @cafeteria.natsuko,
+       12.7 mil seguidores. WhatsApp confirmado ahí mismo vía enlace
+       wa.me/56933851186 en la bio (mismo número que Google Maps).
+     - TikTok real: @natsuko.cafeteria (943 seguidores), misma dirección
+       confirmada en su propia bio.
+     - Email real (fu.do): cafeteria.natsuko@gmail.com
+     - PedidosYa: presencia REAL confirmada por búsqueda (ficha propia,
+       4.9★/14 opiniones) — no se pudo capturar el link profundo exacto
+       en vivo (pedidosya.cl bloquea navegación automatizada con
+       "Acceso denegado"), así que el botón apunta al home de PedidosYa
+       con nota aclaratoria. Revisar/actualizar el link exacto cuando se
+       pueda abrir manualmente.
+     - Rappi / Uber Eats: mencionados solo por terceros (TikTok, un post
+       de Facebook de la comuna) pero NUNCA confirmados directo desde el
+       propio negocio — no se agregó ningún botón para evitar inventar.
+     - Reseñas: 2 reseñas reales completas y positivas (Jisoo y Álvaro
+       Juan Calquin, ambas 5★), con nombre real, copiadas tal cual de
+       Google Maps. Se revisaron todas las reseñas visibles buscando
+       señales de "negocio que no es lo que parece" (mismo criterio que
+       Café Bombay/Café Rex en el portafolio) — NINGUNA señal de alerta:
+       todas hablan de comida/ambiente/familia, hay búsqueda laboral
+       activa reciente y el negocio está liderado por una mujer
+       emprendedora (badge propio de Google).
+     - Fotos: 6 fotos REALES descargadas directo del feed público de
+       Instagram (@cafeteria.natsuko) el 08-09-2026 — logo real, interior
+       con el letrero de madera, barra, postres, decoración con flores de
+       cerezo real sobre la mesa, y vista de la terraza. Ninguna foto de
+       stock en este proyecto.
+     PENDIENTE / NUNCA INVENTADO:
+     - Programa de fidelización: no se encontró ninguno confirmado — no
+       se agregó.
+     - Link exacto de PedidosYa (ver nota arriba).
+     - Faltan más fotos del local — el usuario puede ir dejando fotos
+       adicionales en fotos/ (los nombres ya usados no se deben pisar).
+     ============================================================ -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700;800&family=Zen+Kaku+Gothic+New:wght@300;400;500;700;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div id="loader"><img src="fotos/logo-raw.jpg" alt="" class="loader-mark"></div>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="#" class="nav-brand" data-tab="inicio">
+      <img src="fotos/logo-raw.jpg" alt="Logo Cafetería Natsuko" class="brand-logo">
+      <span class="wordmark">Natsuko</span>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><button class="nav-link active" data-tab="inicio">Inicio</button></li>
+      <li><button class="nav-link" data-tab="nosotros">Nosotros</button></li>
+      <li><button class="nav-link" data-tab="carta">Carta</button></li>
+      <li><button class="nav-link" data-tab="resenas">Reseñas</button></li>
+      <li><button class="nav-link" data-tab="visitanos">Visítanos</button></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="cart-btn" id="cartBtn">Pedido <span class="cart-count" id="cartCount">0</span></button>
+      <button class="nav-toggle" id="navToggle" aria-label="Abrir menú">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<main id="main-content">
+<section id="tab-inicio" class="tab-panel active" data-tab-panel="inicio">
+<section class="hero" id="top">
+  <div class="bg-photo">
+    <img src="fotos/postre-cheesecake.jpg" alt="Cheesecakes y café con flores de cerezo reales de fondo en Cafetería Natsuko">
+  </div>
+  <span class="eyebrow reveal">Pastelería tradicional y japonesa · Padre Hurtado</span>
+  <h1 class="reveal">Café, sushi y ramen bajo las flores de <em>cerezo</em></h1>
+  <p class="tagline reveal">Mochis, dorayakis, bubble tea, ciabattas, gohan y miso ramen — una carta que mezcla la pastelería chilena de siempre con la cultura culinaria japonesa, en Camino San Alberto Hurtado 1630, Local 2 (Spazio Baselli).</p>
+  <div class="hero-info reveal">
+    <div class="hero-pill"><span class="status-dot" id="statusDot"></span> <span id="statusText">Consultando horario…</span></div>
+    <div class="hero-pill">★ <strong>4.7</strong> (281 opiniones)</div>
+    <div class="hero-pill"><strong>Local 2</strong>, Spazio Baselli</div>
+  </div>
+  <div class="cta-row reveal">
+    <button class="btn btn-solid" data-tab="carta">Ver la carta</button>
+    <button class="btn btn-outline" data-tab="visitanos">Cómo llegar</button>
+  </div>
+</section>
+</section>
+
+<section id="tab-nosotros" class="tab-panel" data-tab-panel="nosotros">
+<section id="nosotros">
+  <div class="wrap sobre">
+    <span class="eyebrow reveal">quiénes somos</span>
+    <h2 class="reveal">Pastelería de siempre, con alma japonesa</h2>
+    <p class="reveal">Cafetería Natsuko funciona en Spazio Baselli, en Camino San Alberto Hurtado, Padre Hurtado — un local liderado por una mujer emprendedora (así lo reconoce la propia ficha de Google) que decidió mezclar dos mundos: la pastelería tradicional chilena y la cocina japonesa. El resultado es una carta enorme, poco común para una cafetería de barrio: mochis, dorayakis, baos, ciabattas, sushi, gyozas, ceviches, gohan y miso ramen, además del café, té y bubble tea de siempre.</p>
+    <p class="reveal">Las reseñas reales en Google lo repiten una y otra vez: ingredientes de calidad, servicio amoroso y un local hermoso, decorado con flores de cerezo. El equipo responde personalmente cada reseña —incluidas las críticas— explicando en detalle cómo mejoran cada receta, y el negocio sigue creciendo: hace poco publicaron una búsqueda laboral para sumar más personas al equipo.</p>
+    <div class="badges-row reveal">
+      <span class="badge badge-a">Liderado por una mujer emprendedora</span>
+      <span class="badge badge-a">Accesible en silla de ruedas</span>
+      <span class="badge badge-b">Para retirar o con delivery</span>
+      <span class="badge badge-b">Instagram verificado · 12.7K</span>
+    </div>
+  </div>
+</section>
+
+<div class="divider reveal"><span class="mark">· 桜 ·</span></div>
+
+<section style="background:var(--ink); color:#fff;">
+  <div class="wrap">
+    <div class="section-head dark reveal">
+      <span class="eyebrow">para chusmear</span>
+      <h2>El local</h2>
+    </div>
+    <div class="gallery-grid">
+      <figure class="reveal"><img src="fotos/postre-oreo.jpg" alt="Interior de Cafetería Natsuko con el letrero de madera del logo, barra y equipo trabajando"><div class="gallery-tag">Nuestra barra</div></figure>
+      <figure class="reveal"><img src="fotos/cafe-jugo.jpg" alt="Barista preparando una bebida en capas en la barra de Natsuko"><div class="gallery-tag">Bebidas hechas al momento</div></figure>
+      <figure class="reveal"><img src="fotos/local-agosto30.jpg" alt="Mochi, torta de chocolate y manzana acaramelada de la pastelería de Natsuko"><div class="gallery-tag">Pastelería japonesa y chilena</div></figure>
+      <figure class="reveal"><img src="fotos/huevo-poche.jpg" alt="Huevos benedictinos con vista a la terraza y el sector de Padre Hurtado"><div class="gallery-tag">Nuestra terraza</div></figure>
+    </div>
+  </div>
+</section>
+</section>
+
+<section id="tab-carta" class="tab-panel" data-tab-panel="carta">
+<section id="carta" style="background:var(--paper);">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">la carta</span>
+      <h2>Nuestra carta</h2>
+    </div>
+    <p class="menu-note" style="text-align:center; margin-bottom:30px;">Selección real de nuestra carta completa (tenemos más de 150 combinaciones de sushi y muchas más opciones) — <a href="https://menu.fu.do/cafeterianatsuko" target="_blank" rel="noopener" style="color:var(--blush-dark); font-weight:700;">ver la carta completa y pedir online acá</a>.</p>
+    <div class="menu-tabs" id="menuTabs"></div>
+    <div id="menuPanels"></div>
+  </div>
+</section>
+</section>
+
+<section id="tab-resenas" class="tab-panel" data-tab-panel="resenas">
+<section id="resenas">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">lo que dicen</span>
+      <h2>281 opiniones en Google · 4.7 / 5</h2>
+    </div>
+    <div class="resenas-grid">
+      <article class="resena-card reveal">
+        <div class="stars">★★★★★</div>
+        <p>"Un lugar hermoso, con ingredientes de calidad. Y un servicio excelente, muy amorosas todas las personas que atienden. Un lugar muy grato para compartir, lo recomiendo a mil. Me encantaría que fuera más grande ya que se hacen pocas las mesas, pero no es larga la espera, así que se agradece 💕"</p>
+        <footer>
+          <div class="resena-avatar">J</div>
+          <div class="resena-meta"><strong>Jisoo</strong>Local Guide · hace 3 meses</div>
+        </footer>
+      </article>
+      <article class="resena-card reveal">
+        <div class="stars">★★★★★</div>
+        <p>"Hoy pasamos por primera vez, nos antojaba un ramen, el cual estaba espectacular (probamos de carne de res)… Todo lo demás respecto a servicio y comida muy bueno y muy recomendable. El chico atento a nuestra mesa. Volveremos por otras opciones."</p>
+        <footer>
+          <div class="resena-avatar">AJ</div>
+          <div class="resena-meta"><strong>Álvaro Juan Calquin</strong>hace 5 meses</div>
+        </footer>
+      </article>
+      <article class="resena-card reveal">
+        <div class="stars">★★★★☆</div>
+        <p>"Visité la Cafetería Natsuko y me llevé una grata impresión… El local es precioso: la decoración asiática está muy bien lograda y crea una atmósfera acogedora, ideal para salir de lo cotidiano."</p>
+        <footer>
+          <div class="resena-avatar">MI</div>
+          <div class="resena-meta"><strong>María Ignacia</strong>Local Guide · hace 6 meses</div>
+        </footer>
+      </article>
+    </div>
+    <div class="cta-row reveal" style="justify-content:center;">
+      <a class="btn btn-solid" href="https://search.google.com/local/writereview?placeid=0x9662dd43c67880f1:0xe2ec8b5df196ae2c" target="_blank" rel="noopener">★ Escribir una opinión en Google</a>
+    </div>
+  </div>
+</section>
+</section>
+
+<section id="tab-visitanos" class="tab-panel" data-tab-panel="visitanos">
+<section class="visit" id="visitanos" style="background:linear-gradient(180deg, #241f1e, var(--ink-2)); color:#fff;">
+  <div class="wrap visit-grid">
+    <div>
+      <div class="section-head dark reveal" style="text-align:left; margin-bottom:32px;">
+        <span class="eyebrow">te esperamos</span>
+        <h2>Visítanos</h2>
+      </div>
+      <div class="visit-block reveal"><h3>Dirección</h3><p>Camino San Alberto Hurtado 1630, Local 2, Spazio Baselli, Padre Hurtado, Región Metropolitana</p></div>
+      <div class="visit-block reveal">
+        <h3>Horario</h3>
+        <p>Lunes a jueves 10:00–21:30 · Viernes 10:00–22:00 · Sábado 12:00–22:00 · Domingo 12:00–21:00</p>
+        <div class="visit-pill"><span class="status-dot" id="statusDot2"></span> <span id="statusText2">Consultando horario…</span></div>
+      </div>
+      <div class="visit-block reveal">
+        <h3>Servicio</h3>
+        <p>Para retirar en el local o con entrega a domicilio propia, más pedidos por PedidosYa (ficha propia real, 4.9★). Local accesible en silla de ruedas (entrada, espacio interior y estacionamiento).</p>
+      </div>
+      <div class="visit-block reveal">
+        <h3>Contacto</h3>
+        <div class="contact-links">
+          <a class="contact-pill" href="https://wa.me/56933851186" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.6 6.32A8.86 8.86 0 0 0 12.05 4c-4.85 0-8.8 3.94-8.8 8.8 0 1.55.4 3.05 1.17 4.38L3 21l3.94-1.4a8.83 8.83 0 0 0 4.22 1.07h.01c4.86 0 8.8-3.94 8.8-8.8 0-2.35-.98-4.55-2.37-6.16zM12.05 19.35h-.01a7.4 7.4 0 0 1-3.77-1.03l-.27-.16-2.8 1 .93-2.72-.18-.28a7.35 7.35 0 0 1-1.13-3.94c0-4.06 3.31-7.37 7.4-7.37 1.97 0 3.83.77 5.22 2.17a7.32 7.32 0 0 1 2.16 5.21c0 4.06-3.31 7.37-7.4 7.37zm4.05-5.52c-.22-.11-1.31-.65-1.51-.72-.2-.07-.35-.11-.5.11-.15.22-.57.72-.7.87-.13.15-.26.16-.48.05-.22-.11-.93-.34-1.77-1.09-.65-.58-1.09-1.3-1.22-1.52-.13-.22-.01-.34.1-.45.1-.1.22-.26.33-.39.11-.13.15-.22.22-.37.07-.15.04-.28-.02-.39-.06-.11-.5-1.21-.69-1.66-.18-.43-.37-.37-.5-.38-.13-.01-.28-.01-.43-.01a.83.83 0 0 0-.6.28c-.2.22-.79.77-.79 1.87s.81 2.17.92 2.32c.11.15 1.6 2.44 3.87 3.42.54.23.96.37 1.29.48.54.17 1.04.15 1.43.09.44-.07 1.31-.53 1.49-1.05.18-.51.18-.95.13-1.05-.05-.1-.2-.16-.42-.27z"/></svg>
+            WhatsApp
+          </a>
+          <a class="contact-pill" href="mailto:cafeteria.natsuko@gmail.com">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z"/><path d="m22 6-10 7L2 6"/></svg>
+            Email
+          </a>
+          <a class="contact-pill" href="https://www.instagram.com/cafeteria.natsuko/" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            Instagram
+          </a>
+          <a class="contact-pill" href="https://www.tiktok.com/@natsuko.cafeteria" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.6 5.82s.51.5 0 0A4.28 4.28 0 0 1 15.54 3h-3.09v12.4a2.59 2.59 0 0 1-2.59 2.5c-1.42 0-2.6-1.16-2.6-2.6 0-1.72 1.66-3.01 3.37-2.48V9.66c-3.45-.46-6.47 2.22-6.47 5.64 0 3.33 2.76 5.7 5.69 5.7 3.14 0 5.69-2.55 5.69-5.7V9.01a7.35 7.35 0 0 0 4.31 1.38V7.3s-1.88.09-3.25-1.48z"/></svg>
+            TikTok
+          </a>
+          <!-- PedidosYa: presencia real confirmada (ficha propia 4.9★/14 opiniones) pero no se
+               pudo capturar el link profundo exacto (pedidosya.cl bloquea navegación
+               automatizada) — apunta al home, confirmar/actualizar el link directo a mano. -->
+          <a class="contact-pill" href="https://www.pedidosya.cl/" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3h2l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/></svg>
+            PedidosYa (4.9★)
+          </a>
+        </div>
+      </div>
+      <div class="cta-row reveal" style="justify-content:flex-start;">
+        <a class="btn btn-solid" href="https://www.google.com/maps/dir/?api=1&destination=Camino+San+Alberto+Hurtado+1630,+Padre+Hurtado&destination_place_id=0x9662dd43c67880f1:0xe2ec8b5df196ae2c" target="_blank" rel="noopener">Cómo llegar</a>
+        <a class="btn btn-outline" style="border-color:rgba(255,255,255,0.5); color:#fff;" href="https://waze.com/ul?q=Camino%20San%20Alberto%20Hurtado%201630%2C%20Padre%20Hurtado&navigate=yes" target="_blank" rel="noopener">Ir con Waze</a>
+      </div>
+    </div>
+    <div class="map-frame">
+      <!-- Embed real generado desde la ficha de Google Maps del negocio (Compartir → Incorporar un mapa) -->
+      <iframe loading="lazy" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3324.5434411806996!2d-70.809635!3d-33.56523669999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662dd43c67880f1%3A0xe2ec8b5df196ae2c!2sCafeter%C3%ADa%20Natsuko!5e0!3m2!1ses-419!2scl!4v1788895472031!5m2!1ses-419!2scl" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
+    </div>
+  </div>
+</section>
+</section>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <img src="fotos/logo-raw.jpg" alt="Logo Cafetería Natsuko" class="footer-logo">
+    <p class="footer-tag">Pastelería tradicional y japonesa · Padre Hurtado</p>
+    <p class="footer-contact">Camino San Alberto Hurtado 1630, Local 2 · <a href="https://wa.me/56933851186">+56 9 3385 1186</a></p>
+    <div class="footer-badges">
+      <span class="badge badge-b" style="border-color:rgba(255,255,255,0.35); color:#fff; background:rgba(255,255,255,0.08);">Sushi · Ramen · Pastelería</span>
+      <span class="badge badge-b" style="border-color:rgba(255,255,255,0.35); color:#fff; background:rgba(255,255,255,0.08);">Mujer emprendedora</span>
+    </div>
+    <div class="footer-divider"></div>
+    <div class="footer-links">
+      <a href="https://www.instagram.com/cafeteria.natsuko/" target="_blank" rel="noopener">Instagram</a>
+      <span>·</span>
+      <a href="https://www.tiktok.com/@natsuko.cafeteria" target="_blank" rel="noopener">TikTok</a>
+      <span>·</span>
+      <span>Sitio demo diseñado con cariño</span>
+    </div>
+  </div>
+</footer>
+
+<!-- OVERLAY CARRITO -->
+<div class="overlay" id="cartOverlay">
+  <div class="cart-panel">
+    <button class="close-x" id="cartCloseBtn">&times;</button>
+    <h3>Tu pedido</h3>
+    <div id="cartLines"><p class="cart-empty">Todavía no agregaste nada.</p></div>
+    <div class="cart-total"><span>Total</span><span class="mono" id="cartTotal">$0</span></div>
+    <a class="btn btn-solid" style="justify-content:center; margin-top:14px;" id="checkoutBtn" href="https://wa.me/56933851186" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+  </div>
+</div>
+
+<!-- OVERLAY MODAL PRODUCTO -->
+<div class="overlay modal-overlay" id="modalOverlay">
+  <div class="modal-box">
+    <button class="close-x" id="modalCloseBtn">&times;</button>
+    <div class="modal-photo" id="modalPhoto" style="display:none;"></div>
+    <h3 id="modalName"></h3>
+    <div class="price mono" id="modalPrice"></div>
+    <p class="desc" id="modalDesc"></p>
+    <button class="btn btn-solid" style="width:100%; justify-content:center;" id="modalAddBtn">Agregar al pedido</button>
+  </div>
+</div>
+
+<!-- WIDGET FLOTANTE -->
+<div class="float-widget">
+  <a class="float-btn instagram" href="https://www.instagram.com/cafeteria.natsuko/" target="_blank" rel="noopener" aria-label="Abrir Instagram">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+  </a>
+  <a class="float-btn tiktok" href="https://www.tiktok.com/@natsuko.cafeteria" target="_blank" rel="noopener" aria-label="Abrir TikTok">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.6 5.82s.51.5 0 0A4.28 4.28 0 0 1 15.54 3h-3.09v12.4a2.59 2.59 0 0 1-2.59 2.5c-1.42 0-2.6-1.16-2.6-2.6 0-1.72 1.66-3.01 3.37-2.48V9.66c-3.45-.46-6.47 2.22-6.47 5.64 0 3.33 2.76 5.7 5.69 5.7 3.14 0 5.69-2.55 5.69-5.7V9.01a7.35 7.35 0 0 0 4.31 1.38V7.3s-1.88.09-3.25-1.48z"/></svg>
+  </a>
+  <a class="float-btn whatsapp" href="https://wa.me/56933851186" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.6 6.32A8.86 8.86 0 0 0 12.05 4c-4.85 0-8.8 3.94-8.8 8.8 0 1.55.4 3.05 1.17 4.38L3 21l3.94-1.4a8.83 8.83 0 0 0 4.22 1.07h.01c4.86 0 8.8-3.94 8.8-8.8 0-2.35-.98-4.55-2.37-6.16zM12.05 19.35h-.01a7.4 7.4 0 0 1-3.77-1.03l-.27-.16-2.8 1 .93-2.72-.18-.28a7.35 7.35 0 0 1-1.13-3.94c0-4.06 3.31-7.37 7.4-7.37 1.97 0 3.83.77 5.22 2.17a7.32 7.32 0 0 1 2.16 5.21c0 4.06-3.31 7.37-7.4 7.37zm4.05-5.52c-.22-.11-1.31-.65-1.51-.72-.2-.07-.35-.11-.5.11-.15.22-.57.72-.7.87-.13.15-.26.16-.48.05-.22-.11-.93-.34-1.77-1.09-.65-.58-1.09-1.3-1.22-1.52-.13-.22-.01-.34.1-.45.1-.1.22-.26.33-.39.11-.13.15-.22.22-.37.07-.15.04-.28-.02-.39-.06-.11-.5-1.21-.69-1.66-.18-.43-.37-.37-.5-.38-.13-.01-.28-.01-.43-.01a.83.83 0 0 0-.6.28c-.2.22-.79.77-.79 1.87s.81 2.17.92 2.32c.11.15 1.6 2.44 3.87 3.42.54.23.96.37 1.29.48.54.17 1.04.15 1.43.09.44-.07 1.31-.53 1.49-1.05.18-.51.18-.95.13-1.05-.05-.1-.2-.16-.42-.27z"/></svg>
+  </a>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

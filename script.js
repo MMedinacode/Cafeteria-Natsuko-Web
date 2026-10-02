@@ -4,6 +4,8 @@
    de 200 ítems (incluye ~150 combinaciones de rolls de sushi armables), así
    que acá se muestra una selección representativa por categoría; el botón
    "ver la carta completa" en la sección Carta linkea al menú online real. */
+/* FOTOS DE PRODUCTO (02-10-2026): las 10 con img: son de sus propias historias
+   de Instagram del 01 y 02-10-2026 (fotos del local, recortadas al plato). */
 const MENU = {
   cafeteria: {
     label: 'Cafetería',
@@ -15,7 +17,7 @@ const MENU = {
       { n: 'Capuccino', d: '230 ml', p: 3590 },
       { n: 'Capuccino vainilla', d: '230 ml', p: 4290 },
       { n: 'Mocaccino', p: 4490 },
-      { n: 'Café bombón', d: 'Espresso doble con leche condensada', p: 3990 },
+      { n: 'Café bombón', d: 'Espresso doble con leche condensada', p: 3990, img: 'fotos/ig-cafe-bombon.jpg' },
       { n: 'Chocolate caliente', d: 'A elección: leche, semi amargo, amargo o blanco', p: 4290 },
     ]}]
   },
@@ -26,7 +28,7 @@ const MENU = {
       { n: 'Tetera 400 cc', d: 'Té de hoja de selección', p: 3590 },
       { n: 'Tetera 800 cc', d: 'Té de hoja de selección', p: 4990 },
       { n: 'Matcha latte', p: 4290 },
-      { n: 'Bubble tea de té negro tapioca', d: 'Bolitas de tapioca, leche y leche condensada', p: 5490 },
+      { n: 'Bubble tea de té negro tapioca', d: 'Bolitas de tapioca, leche y leche condensada', p: 5490, img: 'fotos/ig-bubble-tea.jpg' },
       { n: 'Bubble tea de frutilla', p: 5490 },
       { n: 'Té de guisante de mariposa', d: 'Té azul con hielo y popping de mora', p: 5990 },
       { n: 'Ice matcha latte', p: 4490 },
@@ -52,21 +54,21 @@ const MENU = {
       { n: 'Mochi oreo leche condensada', p: 2990 },
       { n: 'Mochi bon o bon', d: 'Premium', p: 3390 },
       { n: 'Mochi red velvet', d: 'Premium', p: 3390 },
-      { n: 'Waffle', d: 'Con frutilla, plátano, 2 salsas a elección y mini marshmellow', p: 6990 },
+      { n: 'Waffle', d: 'Con frutilla, plátano, 2 salsas a elección y mini marshmellow', p: 6990, img: 'fotos/ig-waffle.jpg' },
       { n: 'Brownie con helado', d: 'Con salsa de chocolate', p: 4990 },
-      { n: 'Cake japonés', p: 4990 },
+      { n: 'Cake japonés', p: 4990, img: 'fotos/ig-cake-japones.jpg' },
     ]}]
   },
   panaderia: {
     label: 'Ciabattas y Baoz',
     groups: [{ items: [
       { n: 'Ciabatta jamón queso', p: 4990 },
-      { n: 'Ciabatta jamón serrano', d: 'Queso crema, ciboulette-limón, hojas verdes y tomate cherry', p: 5990 },
+      { n: 'Ciabatta jamón serrano', d: 'Queso crema, ciboulette-limón, hojas verdes y tomate cherry', p: 5990, img: 'fotos/ig-ciabatta-serrano.jpg' },
       { n: 'Ciabatta queso de cabra', d: 'Con tomate y albahaca', p: 6990 },
       { n: 'Ciabatta mechada palta', p: 6990 },
-      { n: 'Ciabatta pastrami', d: 'Con queso, pepinillos y mostaza', p: 7990 },
+      { n: 'Ciabatta pastrami', d: 'Con queso, pepinillos y mostaza', p: 7990, img: 'fotos/ig-ciabatta-pastrami.jpg' },
       { n: 'Bao salmón', d: 'Dos unidades, con queso crema, palta y salsa acevichada', p: 6990 },
-      { n: 'Bao lomo saltado', p: 7990 },
+      { n: 'Bao lomo saltado', p: 7990, img: 'fotos/ig-bao-lomo-saltado.jpg' },
     ]}]
   },
   ramen: {
@@ -102,10 +104,10 @@ const MENU = {
   calientes: {
     label: 'Platos Calientes',
     groups: [{ items: [
-      { n: 'Lomo Saltado', p: 10490 },
+      { n: 'Lomo Saltado', p: 10490, img: 'fotos/ig-lomo-saltado.jpg' },
       { n: 'Yakisoba pollo', p: 8990 },
       { n: 'Pollo teriyaki', p: 8990 },
-      { n: 'Salmón teriyaki', p: 10590 },
+      { n: 'Salmón teriyaki', p: 10590, img: 'fotos/ig-salmon-teriyaki.jpg' },
       { n: 'Yakimeshi camarón', p: 8990 },
     ]}]
   },
@@ -113,7 +115,7 @@ const MENU = {
     label: 'Promociones',
     groups: [{ items: [
       { n: 'Promo café más pastel', p: 6990 },
-      { n: 'Fondue para 2 personas', d: '2 chocolates a elección + 4 acompañamientos', p: 15990 },
+      { n: 'Fondue para 2 personas', d: '2 chocolates a elección + 4 acompañamientos', p: 15990, img: 'fotos/ig-fondue.jpg' },
       { n: 'Once para 2', p: 25990 },
     ]}]
   }
